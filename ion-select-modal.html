@@ -1,0 +1,30 @@
+<style>
+    .ui-match {
+        background: yellow;
+        font-weight: bold;
+    }
+</style>
+<ion-modal-view>
+    <ion-header-bar class="dark-bg">
+        <h1 class="title">Selecione uma opção</h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="closeModal()">Fechar</button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list">
+            <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Buscar" ng-model="modal.filtro" id="modal-filtro">
+            </label>
+        </div>
+        <ion-scroll style="height:800px" delegate-handle="modal.listScroll">
+            <ul class="list">
+                <li class="item item-icon-right" ng-click="selecionar(item)" ng-repeat="item in provider | dynamicFilter:[labelField,modal.filtro]" ng-if="item[labelField]">
+                    <p ng-bind-html="item[labelField]| highlight:modal.filtro:false"></p>
+                    <i class="icon ion-checkmark-circled" ng-show="item.checked"></i>
+                </li>
+            </ul>
+        </ion-scroll>
+    </ion-content>
+</ion-modal-view>
