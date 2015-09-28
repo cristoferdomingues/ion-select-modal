@@ -79,14 +79,16 @@ ionSelectModal.directive('ionSelectModal', function ($timeout, $ionicModal, $ion
             };
 
             scope.$watch('ngModel', function (newValue, oldValue) {
-                if (angular.isObject(newValue) || newValue === '') {
-                    console.log(newValue);
+                /*if (angular.isObject(newValue) || newValue === '') {
+                    element.find('input').val(newValue[scope.labelField]);
                     if (newValue !== oldValue) {
                         if (newValue) {
-                            console.log(newValue[scope.labelField]);
                             element.find('input').val(newValue[scope.labelField]);
                         }
                     }
+                }*/
+                if (angular.isObject(newValue) || newValue === '') {
+                    element.find('input').val(newValue[scope.labelField]);
                 }
             });
 
