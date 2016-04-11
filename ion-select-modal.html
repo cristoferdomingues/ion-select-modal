@@ -19,7 +19,7 @@
         <div class="list list-inset">
             <label class="item item-input">
                 <i class="icon ion-search placeholder-icon"></i>
-                <input type="text" placeholder="Buscar" ng-model="modal.filtro" reset-field id="modal-filtro">
+                <input type="text" placeholder="Buscar" ng-model="modal.filtro" reset-field id="modal-filtro" ng-model-options="{debounce:2000}">
             </label>
         </div>
         <ion-scroll class="ion-select-scroll" delegate-handle="modal.listScroll">
